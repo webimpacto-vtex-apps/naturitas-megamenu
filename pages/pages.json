@@ -1,0 +1,12 @@
+{
+  "pages": {
+    "megamenu": {
+      "path": "/_v/megamenu"
+    }
+  },
+  "extensions": {
+    "megamenu": {
+      "component": "Megamenu"
+    }
+  }
+}

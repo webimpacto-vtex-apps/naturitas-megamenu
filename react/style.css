@@ -1,0 +1,5 @@
+@media (min-width: 992px) {
+    div[data-extension-point="store/header/megamenu"] {
+        width: 100%;
+    }
+}
