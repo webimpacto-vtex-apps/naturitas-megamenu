@@ -9,13 +9,16 @@ class Column extends Component {
 
         return (
             <div className={`col${(column.nbColumnsWidth && column.nbColumnsWidth != 'auto' ? '-lg-' + column.nbColumnsWidth : '')} position-static`}>
-            {column.sections && column.sections.map((section, sectionKey) => {
-                console.log("section", section);
-                return (
-                    <Section section={section}/>
-                )
-            })}
-        </div>
+                {column.sections && column.sections.map((section, sectionKey) => {
+
+                    return (
+                        <Section key={sectionKey}
+                            section={section}
+                            changeSectionDropdownShow={this.props.changeSectionDropdownShow}
+                            handleMenu={this.props.handleMenu}/>
+                    )
+                })}
+            </div>
         )
     }
 }

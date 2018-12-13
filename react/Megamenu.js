@@ -8,8 +8,26 @@ class Megamenu extends Component {
         super();
         this.swipe = 0;
 
+        this.Megamenu = React.createRef();
+
         this.state = {
-            showmenu: false
+            showmenu: false,
+            isItemDropdownShow: false,
+            isSectionDropdownShow: false
+        }
+    }
+
+    changeItemDropdownShow = (show) => {
+        if(show != this.state.isItemDropdownShow){
+            this.Megamenu.current.scrollTop = 0;
+            this.setState({isItemDropdownShow: show})
+        }
+    }
+
+    changeSectionDropdownShow = show => {
+        if(show != this.state.isSectionDropdownShow){
+            this.Megamenu.current.scrollTop = 0;
+            this.setState({isSectionDropdownShow: show})
         }
     }
 
@@ -27,7 +45,6 @@ class Megamenu extends Component {
     }
 
     handleMenu() {
-
         this.setState({
             showmenu: !this.state.showmenu
         }, this.showOrNotMenu);
@@ -54,7 +71,7 @@ class Megamenu extends Component {
 
     render() {
         const { menuParentItems, menuGroups } = this.props
-        console.log(menuGroups)
+        
         return (
             <Swipe
                 onSwipeStart={this.onSwipeStart.bind(this)}
@@ -68,10 +85,11 @@ class Megamenu extends Component {
                     </button>
 
 
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div className={"collapse navbar-collapse" + ((this.state.isItemDropdownShow || this.state.isSectionDropdownShow) ? ' blockYScroll ' : '')} 
+                     ref={this.Megamenu} id="navbarSupportedContent">
 
                         <div className={"header-menu-mobile d-flex d-lg-none"}>
-                            <div className="nav-closer">
+                            <div className="nav-closer" onClick={(e) => this.handleMenu()}>
 
                             </div>
                             <span className="icon-leafs_naturitas m-auto d-lg-none" />
@@ -85,7 +103,10 @@ class Megamenu extends Component {
                         <div className="menuItemsContainer d-flex flex-column flex-lg-row w-100">
                             {menuGroups && menuGroups.map((group, groupKey) => {
                                 return (
-                                    <Group group={group} key={groupKey} />
+                                    <Group group={group} key={groupKey}
+                                            changeItemDropdownShow={this.changeItemDropdownShow} 
+                                            changeSectionDropdownShow={this.changeSectionDropdownShow}
+                                            handleMenu={this.handleMenu.bind(this)}/>
                                 )
                             })}
                         </div>

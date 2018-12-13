@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'render' 
 
 
 class SectionLink extends Component {
@@ -7,8 +8,8 @@ class SectionLink extends Component {
         const { link } = this.props
 
         return (
-            <a href={link.linkURL} className={link.linkImage ? 'hasImage' : ''} >
-                <div className={"sectionLink " + (link.linkIcon ? ' hasIcon ' : '')}>
+            <Link  to={link.linkURL} className={link.linkImage ? 'hasImage' : ''} >
+                <div  onClick={(e) => this.props.handleMenu()} className={"sectionLink " + (link.linkIcon ? ' hasIcon ' : '')}>
                     {link.linkIcon && 
                         <img src={link.linkIcon} className="linkicon"/>
                     }
@@ -18,7 +19,7 @@ class SectionLink extends Component {
                      }
                     <span>{link.linkTitle}</span>
                 </div>
-            </a>
+            </Link>
         )
     }
 }
