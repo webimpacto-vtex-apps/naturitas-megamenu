@@ -15,6 +15,10 @@ class Megamenu extends Component {
             isItemDropdownShow: false,
             isSectionDropdownShow: false
         }
+
+        if ('ontouchstart' in document.documentElement) {
+            document.body.style.cursor = 'pointer';
+          }
     }
 
     changeItemDropdownShow = (show) => {

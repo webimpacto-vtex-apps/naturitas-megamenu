@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { Link } from 'render' 
+import { Link } from 'render'
 import Row from './Row';
+import enhanceWithClickOutside from "react-click-outside";
 
 
 class Item extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
         this.dropdown = React.createRef();
         this.state = {
@@ -13,33 +14,62 @@ class Item extends Component {
         }
     }
 
+    shouldComponentUpdate(nextProps, nextState) {
+        if (
+            (nextState.showItemDropdown != this.state.showItemDropdown) ||
+            (nextState.isSectionDropdownShow != this.state.isSectionDropdownShow)
+        ) {
+            return true
+        }
+        return false;
+    }
+
+    handleMenu = () => {
+        this.props.handleMenu();
+        this.showItemDropdown(false);
+    }
+
     toogleItemDropdown = (e) => {
+        console.log(!this.state.showItemDropdown && this.props.item.rows.length > 0);
+
+        //if(!this.state.showItemDropdown && this.props.item.rows.length > 0){
+        console.log("PREVENT");
         e.preventDefault();
         this.props.changeItemDropdownShow(!this.state.showItemDropdown)
         this.setState({
             showItemDropdown: !this.state.showItemDropdown
         })
+        //}
+    }
+
+    showItemDropdown = (show) => {
+        this.props.changeItemDropdownShow(show)
+        this.setState({ showItemDropdown: show })
     }
 
     itemMouseEnter = (e) => {
-        if(!this.state.showItemDropdown && window.innerWidth>1024){
-            this.props.changeItemDropdownShow(true)
-            this.setState({showItemDropdown:true})
+        if (!this.state.showItemDropdown && window.innerWidth > 1024) {
+            this.showItemDropdown(true)
         }
     }
 
     itemMouseLeave = (e) => {
-        if(this.state.showItemDropdown && window.innerWidth>1024){
-            this.props.changeItemDropdownShow(false)
-            this.setState({showItemDropdown:false})
+        if (this.state.showItemDropdown && window.innerWidth > 1024) {
+            this.showItemDropdown(false)
         }
     }
 
-   changeSectionDropdownShow = show => {
-       this.dropdown.current.scrollTop = 0;
-       this.setState({isSectionDropdownShow: show})
-       this.props.changeSectionDropdownShow(show)
-   }
+    changeSectionDropdownShow = show => {
+        this.dropdown.current.scrollTop = 0;
+        this.setState({ isSectionDropdownShow: show })
+        this.props.changeSectionDropdownShow(show)
+    }
+
+    handleClickOutside() {
+      if(this.state.showItemDropdown){
+        this.showItemDropdown(false)
+      }
+    }
 
 
 
@@ -55,39 +85,54 @@ class Item extends Component {
             }
             return style;
         }
-        console.log("Render ITEM");
+
+        const itemLinkContent = (
+            <span style={itemStyle(item)}>
+                {item.icon && item.iconPosition == 'Left' &&
+                    <img style={{ marginRight: '5px' }} src={item.icon} />
+                }
+                {item.title}
+                {item.icon && item.iconPosition == 'Right' &&
+                    <img style={{ marginLeft: '5px' }} src={item.icon} />
+                }
+            </span>
+        )
+
+        const itemLink =
+        (!this.state.showItemDropdown && this.props.item.rows.length > 0)
+            ? (<a className={"nav-link" + (item.isGroupMobile ? ' menuTitle ' : '')} to={item.url} id="navbarDropdown"
+                onClick={(e) => this.toogleItemDropdown(e)}>
+                {itemLinkContent}
+            </a>)
+            : (<Link className={"nav-link" + (item.isGroupMobile ? ' menuTitle ' : '')} to={item.url} id="navbarDropdown"
+                onClick={this.handleMenu}>
+                {itemLinkContent}
+            </Link>)
+
+
         return (
-            <li className={"nav-item " + (item.rows.length > 0 ? 'dropdown' : '')  + (this.state.showItemDropdown ? ' show ' : '')} 
+            <li className={"nav-item " + (item.rows.length > 0 ? 'dropdown' : '') + (this.state.showItemDropdown ? ' show ' : '')}
                 onMouseEnter={(e) => this.itemMouseEnter(e)}
                 onMouseLeave={(e) => this.itemMouseLeave(e)}>
-                
-                <Link className={"nav-link" + (item.isGroupMobile ? ' menuTitle ' : '')} to={item.url} id="navbarDropdown" 
-                onClick={(e) => this.toogleItemDropdown(e)}>
-                    <span style={itemStyle(item)}>
-                        {item.icon && item.iconPosition == 'Left' &&
-                            <img style={{ marginRight: '5px' }} src={item.icon} />
-                        }
-                        {item.title}
-                        {item.icon && item.iconPosition == 'Right' &&
-                            <img style={{ marginLeft: '5px' }} src={item.icon} />
-                        }
-                    </span>
-                </Link>
+
+                {itemLink}
 
                 {item.rows.length > 0 &&
-                    <div className={"dropdown-menu " + (this.state.showItemDropdown ? ' show ' : '') +(this.state.isSectionDropdownShow ? ' blockYScroll ' : '') 
-                    + (item.isGroupMobile ? 'isGroup' : '')} ref={this.dropdown} aria-labelledby="navbarDropdown">
+                    <div className={"dropdown-menu " + (this.state.showItemDropdown ? ' show ' : '') + (this.state.isSectionDropdownShow ? ' blockYScroll ' : '')
+                        + (item.isGroupMobile ? 'isGroup' : '')} ref={this.dropdown} aria-labelledby="navbarDropdown">
                         {!item.isGroupMobile &&
-                            <div className={"return col-lg-3 d-lg-none"} onClick={(e) => this.toogleItemDropdown(e)}>
+                            <div className={"return col-lg-3 d-lg-none"} onClick={(e) => this.showItemDropdown(false)}>
                                 Volver
                             </div>
                         }
 
                         {!item.isGroupMobile &&
                             <div className={"d-lg-none col-lg-3"}>
-                                <div className={"menuTitle"}>{item.title}</div> 
-                                {item.url && 
-                                    <Link to={item.url} className={"viewAllSection d-block"}>Ver todo <span>{item.title.toLowerCase().charAt(0).toUpperCase() + item.title.toLowerCase().slice(1) }</span> </Link>
+                                <div className={"menuTitle"}>{item.title}</div>
+                                {item.url &&
+                                    <Link to={item.url} className={"viewAllSection d-block"} onClick={this.handleMenu}>
+                                        Ver todo <span>{item.title.toLowerCase().charAt(0).toUpperCase() + item.title.toLowerCase().slice(1)}</span>
+                                    </Link>
                                 }
                             </div>
                         }
@@ -97,9 +142,9 @@ class Item extends Component {
 
                         {item.rows && item.rows.map((row, keyRow) => {
                             return (
-                                <Row key={keyRow} row={row} 
-                                changeSectionDropdownShow={this.changeSectionDropdownShow}
-                                handleMenu={this.props.handleMenu}/>
+                                <Row key={keyRow} row={row}
+                                    changeSectionDropdownShow={this.changeSectionDropdownShow}
+                                    handleMenu={this.handleMenu} />
                             )
                         }
                         )}
@@ -109,4 +154,4 @@ class Item extends Component {
         )
     }
 }
-export default Item
+export default enhanceWithClickOutside(Item)

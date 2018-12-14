@@ -3,6 +3,9 @@ import { Link } from 'render'
 
 
 class SectionLink extends Component {
+    shouldComponentUpdate(nextProps, nextState){
+        return false;
+    }
 
     render() {
         const { link } = this.props

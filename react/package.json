@@ -1,13 +1,14 @@
 {
   "name": "naturitas-megamenu",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "author": "webimpacto",
   "license": "MIT",
   "dependencies": {
     "react": "^16.3.2",
     "react-apollo": "^2.1.4",
     "@vtex/styleguide": "^2.0.0-rc.35",
-    "react-easy-swipe": "^0.0.17"
+    "react-easy-swipe": "^0.0.17",
+    "react-click-outside": "^3.0.1"
   },
   "devDependencies": {
     "@types/react": "^16.3.14"
