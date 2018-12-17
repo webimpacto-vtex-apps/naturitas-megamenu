@@ -16,6 +16,10 @@ class Megamenu extends Component {
             isSectionDropdownShow: false
         }
 
+
+    }
+
+    componentDidMount(){
         if ('ontouchstart' in document.documentElement) {
             document.body.style.cursor = 'pointer';
           }
