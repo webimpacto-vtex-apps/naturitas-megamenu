@@ -1,0 +1,24 @@
+@media (min-width: 992px) {
+    div[data-extension-point="store/header/megamenu"] {
+        width: 100%;
+    }
+}
+@media (max-width: 991px) {
+    header .navbar .navbar-toggler span.navbar-toggler-icon{
+        background-image: url("./img/menu_mobile.png");
+        width: 38px;
+        height: 26px;
+    }
+    header #menu .icon.tlf{
+        display: none;
+    }
+    header{
+        position: fixed;
+        top: 0;
+        z-index: 2;
+        width: 100%;
+    }
+    .render-container{
+        margin-top: 138px;
+    }
+}

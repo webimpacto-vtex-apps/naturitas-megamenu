@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Swipe from 'react-easy-swipe';
 import Group from './nested_components/Group';
-import './style.css'
+import './global.css'
+import img from './img/menu_mobile.png'
 
 class Megamenu extends Component {
     constructor(props) {
