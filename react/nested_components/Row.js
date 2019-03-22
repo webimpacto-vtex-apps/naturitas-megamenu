@@ -5,7 +5,7 @@ import Column from './Column';
 class Row extends Component {
 
     render() {
-        const { row } = this.props
+        const { row, parent } = this.props
 
         return (
 
@@ -13,9 +13,10 @@ class Row extends Component {
                 {row.columns && row.columns.map((column, columnKey) => {
 
                     return (
-                        <Column key={columnKey} column={column}
+                        <Column key={columnKey} column={column} 
                             changeSectionDropdownShow={this.props.changeSectionDropdownShow}
-                            handleMenu={this.props.handleMenu} />
+                            handleMenu={this.props.handleMenu} 
+                            parentTitle={parent}/>
                     )
                 })}
             </div>

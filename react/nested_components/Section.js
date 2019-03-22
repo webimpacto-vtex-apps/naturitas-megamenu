@@ -47,12 +47,12 @@ class Section extends Component {
 
     render() {
         console.log("render Section")
-        const { section } = this.props
+        const { section, parent } = this.props
 
         return (
             <div className="dropdown-section">
                 <div className={"dropdown-section-title " + (section.sectionLinks.length > 0 ? 'hasItems' : '')}>
-                    <a to={section.sectionURL} onClick={(e) => this.clickSectionDropdown(e)}>
+                    <a href={section.sectionURL} onClick={(e) => this.clickSectionDropdown(e)}>
 
                         {section.sectionTitle}
 
@@ -63,7 +63,7 @@ class Section extends Component {
                 </div>
                 <div className={"dropdown-section-items" + (this.state.showSectionDropdown ? ' show ' : '')}>
                     <div className={"return col-lg-3 d-lg-none"} onClick={(e) => this.clickSectionDropdown(e)}>
-                        Volver
+                        Volver {parent}
                     </div>
 
                     <div className={"d-lg-none col-lg-3"}>

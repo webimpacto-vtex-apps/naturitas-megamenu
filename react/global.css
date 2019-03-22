@@ -2,6 +2,9 @@
     div[data-extension-point="store/header/megamenu"] {
         width: 100%;
     }
+    .mainNav nav .nav-item .nav-link img{
+        display: none;
+    }
 }
 @media (max-width: 991px) {
     header .navbar .navbar-toggler span.navbar-toggler-icon{
@@ -20,5 +23,11 @@
     }
     .render-container{
         margin-top: 138px;
+    }
+    .mainNav nav .dropdown .dropdown-section .dropdown-section-items{
+        padding-bottom: 15px;
+    }
+    .mainNav nav .dropdown .dropdown-menu{
+        height: calc(100vh - 95px) !important;
     }
 }

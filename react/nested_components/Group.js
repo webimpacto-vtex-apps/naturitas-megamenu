@@ -9,7 +9,7 @@ class Group extends Component {
         const { group } = this.props
 
         return (
-            <ul className={"navbar-nav navgroup "+marginClass(group.margin) + ((group.order != 'none') ? ` order-mvl-${group.order} `: '') }>
+            <ul className={"navbar-nav navgroup "+marginClass(group.margin) + ((group.order != 'none') ? ` order-mvl-${group.order} `: '') + ((group.display == 'Mobile') ? ` d-lg-none`: '')}>
                 {group.name &&
                     <div className={"d-lg-none"}>
                         <span className={"menuTitle"}>{group.name}</span>

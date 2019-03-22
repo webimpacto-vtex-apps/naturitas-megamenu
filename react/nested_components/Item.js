@@ -144,7 +144,7 @@ class Item extends Component {
                             return (
                                 <Row key={keyRow} row={row}
                                     changeSectionDropdownShow={this.changeSectionDropdownShow}
-                                    handleMenu={this.handleMenu} />
+                                    handleMenu={this.handleMenu} parent={item.title} />
                             )
                         }
                         )}
