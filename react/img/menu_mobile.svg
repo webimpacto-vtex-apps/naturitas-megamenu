@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="38px" height="25px" viewBox="0 0 38 25" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
+    <title>378F246A-6CC2-4BCE-BE25-B67C3D6EF1B8</title>
+    <desc>Created with sketchtool.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mobile-Home-Tamaño-busqueda" transform="translate(-8.000000, -40.000000)" fill="#646464">
+            <g id="Header-Busca-New">
+                <g id="menu_mobile" transform="translate(8.000000, 40.000000)">
+                    <g id="Lineas-menu" transform="translate(8.000000, 0.000000)">
+                        <path d="M0.86908884,1.52727273 L20.1309112,1.52727273 C20.6089073,1.52727273 21,1.18517171 21,0.763636364 C21,0.342101018 20.6089073,-2.88657986e-15 20.1309112,-2.88657986e-15 L0.86908884,-2.88657986e-15 C0.389342612,-2.88657986e-15 -5.15143483e-14,0.342101018 -5.15143483e-14,0.763636364 C-5.46906325e-05,1.18517171 0.389342612,1.52727273 0.86908884,1.52727273 Z" id="Path"></path>
+                        <path d="M0.86908884,12.0272727 L20.1309112,12.0272727 C20.6089073,12.0272727 21,11.683634 21,11.2636364 C21,10.8436388 20.6089073,10.5 20.1309112,10.5 L0.86908884,10.5 C0.389342612,10.5 7.28306304e-14,10.8436388 7.28306304e-14,11.2636364 C-5.46906323e-05,11.683634 0.389342612,12.0272727 0.86908884,12.0272727 Z" id="Path"></path>
+                        <path d="M0.615639977,7.25454545 L14.260215,7.25454545 C14.598815,7.25454545 14.875855,6.91244444 14.875855,6.49090909 C14.875855,6.06937375 14.598815,5.72727273 14.260215,5.72727273 L0.615639977,5.72727273 C0.275800201,5.72727273 2.48689958e-14,6.06937375 2.48689958e-14,6.49090909 C-3.87414245e-05,6.91244444 0.275800201,7.25454545 0.615639977,7.25454545 Z" id="Path"></path>
+                    </g>
+                    <text id="Categorías" font-family="BrandonGrotesque-Medium, Brandon Grotesque, brandon-grotesque" font-size="9" font-weight="400" line-spacing="9">
+                        <tspan x="0" y="23">Categorías</tspan>
+                    </text>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

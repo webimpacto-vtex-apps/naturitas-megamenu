@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Swipe from 'react-easy-swipe';
 import Group from './nested_components/Group';
 import './global.css'
-import img from './img/menu_mobile.png'
+import img from './img/menu_mobile.svg'
 
 class Megamenu extends Component {
     constructor(props) {
