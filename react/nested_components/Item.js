@@ -74,7 +74,7 @@ class Item extends Component {
 
 
     render() {
-        const { item } = this.props
+        const { item, translates } = this.props
         const itemStyle = (item) => {
             let style = {}
             if (item.color) {
@@ -89,11 +89,11 @@ class Item extends Component {
         const itemLinkContent = (
             <span style={itemStyle(item)}>
                 {item.icon && item.iconPosition == 'Left' &&
-                    <img style={{ marginRight: '5px' }} src={item.icon} />
+                   <span className="content-img"> <img style={{ marginRight: '5px' }} src={item.icon} /></span>
                 }
-                {item.title}
+                <span>{item.title}</span>
                 {item.icon && item.iconPosition == 'Right' &&
-                    <img style={{ marginLeft: '5px' }} src={item.icon} />
+                   <span className="content-img"> <img style={{ marginLeft: '5px' }} src={item.icon} /></span>
                 }
             </span>
         )
@@ -122,7 +122,7 @@ class Item extends Component {
                         + (item.isGroupMobile ? 'isGroup' : '')} ref={this.dropdown} aria-labelledby="navbarDropdown">
                         {!item.isGroupMobile &&
                             <div className={"return col-lg-3 d-lg-none"} onClick={(e) => this.showItemDropdown(false)}>
-                                Volver
+                                {translates && translates.volver}
                             </div>
                         }
 
@@ -144,7 +144,8 @@ class Item extends Component {
                             return (
                                 <Row key={keyRow} row={row}
                                     changeSectionDropdownShow={this.changeSectionDropdownShow}
-                                    handleMenu={this.handleMenu} parent={item.title} />
+                                    handleMenu={this.handleMenu} parent={item.title} 
+                                    translates={translates}/>
                             )
                         }
                         )}

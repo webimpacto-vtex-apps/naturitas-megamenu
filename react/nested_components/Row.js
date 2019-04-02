@@ -5,7 +5,7 @@ import Column from './Column';
 class Row extends Component {
 
     render() {
-        const { row, parent } = this.props
+        const { row, parent, translates } = this.props
 
         return (
 
@@ -16,7 +16,8 @@ class Row extends Component {
                         <Column key={columnKey} column={column} 
                             changeSectionDropdownShow={this.props.changeSectionDropdownShow}
                             handleMenu={this.props.handleMenu} 
-                            parentTitle={parent}/>
+                            parentTitle={parent}
+                            translates={translates}/>
                     )
                 })}
             </div>

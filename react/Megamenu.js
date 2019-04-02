@@ -79,7 +79,7 @@ class Megamenu extends Component {
     }
 
     render() {
-        const { menuParentItems, menuGroups } = this.props
+        const { menuParentItems, menuGroups, translates } = this.props
         
         return (
             <Swipe
@@ -105,8 +105,8 @@ class Megamenu extends Component {
                         </div>
 
                         <div className={"menu-mobile-account d-flex d-lg-none"}>
-                            <div className={"mr-auto"}>Bienvenido</div>
-                            <div><a href="#">Iniciar Sesión</a></div>
+                            <div className={"mr-auto"}>{translates && translates.bienvenido}</div>
+                            <div><a href="#">{translates && translates.iniciarSesion}</a></div>
                         </div>
 
                         <div className="menuItemsContainer d-flex flex-column flex-lg-row w-100">
@@ -115,7 +115,8 @@ class Megamenu extends Component {
                                     <Group group={group} key={groupKey}
                                             changeItemDropdownShow={this.changeItemDropdownShow} 
                                             changeSectionDropdownShow={this.changeSectionDropdownShow}
-                                            handleMenu={this.handleMenu.bind(this)}/>
+                                            handleMenu={this.handleMenu.bind(this)}
+                                            translates={translates}/>
                                 )
                             })}
                         </div>
@@ -321,6 +322,10 @@ Megamenu.getSchema = (props) => {
                                                                                             'ui:widget': 'image-uploader',
                                                                                         },
                                                                                     },
+                                                                                    linkColor: {
+                                                                                        title: 'Color',
+                                                                                        type: 'string'
+                                                                                    }
 
                                                                                 }
                                                                             }
@@ -342,6 +347,33 @@ Megamenu.getSchema = (props) => {
 
 
 
+            },
+            translates:{
+                title: 'Traducciones textos ',
+                description: 'Traducciones textos Mega Menu',
+                type: 'object',
+                properties: {
+                    bienvenido: {
+                        title: 'Bienvenido',
+                        type: 'string',
+                        default: 'Bienvenido'
+                    },
+                    iniciarSesion: {
+                        title: 'IniciarSesion',
+                        type: 'string',
+                        default: 'Iniciar sesión'
+                    }, 
+                    volver:{
+                        title: 'Volver',
+                        type: 'string',
+                        default: 'Volver'
+                    },
+                    volverA:{
+                        title: 'Volver a',
+                        type: 'string',
+                        default: 'Volver a'
+                    }
+                }
             },
         },
     }

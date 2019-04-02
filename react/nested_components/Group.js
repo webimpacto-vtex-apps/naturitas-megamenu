@@ -6,7 +6,7 @@ import marginClass from '../utils/MarginClass';
 class Group extends Component {
 
     render() {
-        const { group } = this.props
+        const { group, translates } = this.props
 
         return (
             <ul className={"navbar-nav navgroup "+marginClass(group.margin) + ((group.order != 'none') ? ` order-mvl-${group.order} `: '') + ((group.display == 'Mobile') ? ` d-lg-none`: '')}>
@@ -20,7 +20,8 @@ class Group extends Component {
                        <Item key={key} item={item} 
                        changeItemDropdownShow={this.props.changeItemDropdownShow} 
                        changeSectionDropdownShow={this.props.changeSectionDropdownShow}
-                       handleMenu={this.props.handleMenu}/>
+                       handleMenu={this.props.handleMenu}
+                       translates={translates}/>
                     )
                 })}
 

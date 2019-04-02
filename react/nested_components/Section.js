@@ -46,8 +46,7 @@ class Section extends Component {
       }
 
     render() {
-        console.log("render Section")
-        const { section, parent } = this.props
+        const { section, parent, translates } = this.props
 
         return (
             <div className="dropdown-section">
@@ -63,7 +62,7 @@ class Section extends Component {
                 </div>
                 <div className={"dropdown-section-items" + (this.state.showSectionDropdown ? ' show ' : '')}>
                     <div className={"return col-lg-3 d-lg-none"} onClick={(e) => this.clickSectionDropdown(e)}>
-                        Volver {parent}
+                        {translates.volverA} {parent}
                     </div>
 
                     <div className={"d-lg-none col-lg-3"}>
