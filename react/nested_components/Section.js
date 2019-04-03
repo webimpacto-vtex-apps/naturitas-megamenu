@@ -62,7 +62,7 @@ class Section extends Component {
                 </div>
                 <div className={"dropdown-section-items" + (this.state.showSectionDropdown ? ' show ' : '')}>
                     <div className={"return col-lg-3 d-lg-none"} onClick={(e) => this.clickSectionDropdown(e)}>
-                        {translates.volverA} {parent}
+                        {translates && translates.volverA} {parent}
                     </div>
 
                     <div className={"d-lg-none col-lg-3"}>
