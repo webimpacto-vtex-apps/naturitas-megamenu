@@ -69,7 +69,7 @@ class Section extends Component {
                         <div className={"menuTitle"}>{section.sectionTitle}</div>
                         {section.sectionURL &&
                             <Link to={section.sectionURL} className={"viewAllSection d-block"} onClick={this.handleMenu}>
-                                Ver todo <span>{section.sectionTitle.toLowerCase().charAt(0).toUpperCase() + section.sectionTitle.toLowerCase().slice(1)}</span>
+                                {translates && translates.verTodo} <span>{section.sectionTitle && section.sectionTitle.toLowerCase().charAt(0).toUpperCase() + section.sectionTitle.toLowerCase().slice(1)}</span>
                             </Link>
                         }
 

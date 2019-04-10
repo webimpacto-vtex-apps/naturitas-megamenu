@@ -106,7 +106,7 @@ class Megamenu extends Component {
 
                         <div className={"menu-mobile-account d-flex d-lg-none"}>
                             <div className={"mr-auto"}>{translates && translates.bienvenido}</div>
-                            <div><a href="#">{translates && translates.iniciarSesion}</a></div>
+                            <div><a href="/account">{translates && translates.iniciarSesion}</a></div>
                         </div>
 
                         <div className="menuItemsContainer d-flex flex-column flex-lg-row w-100">
@@ -372,6 +372,11 @@ Megamenu.getSchema = (props) => {
                         title: 'Volver a',
                         type: 'string',
                         default: 'Volver a'
+                    },
+                    verTodo:{
+                        title: 'Ver todo',
+                        type: 'string',
+                        default: 'Ver todo'
                     }
                 }
             },

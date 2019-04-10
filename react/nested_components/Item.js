@@ -131,7 +131,7 @@ class Item extends Component {
                                 <div className={"menuTitle"}>{item.title}</div>
                                 {item.url &&
                                     <Link to={item.url} className={"viewAllSection d-block"} onClick={this.handleMenu}>
-                                        Ver todo <span>{item.title.toLowerCase().charAt(0).toUpperCase() + item.title.toLowerCase().slice(1)}</span>
+                                        {translates && translates.verTodo} <span>{item.title && item.title.toLowerCase().charAt(0).toUpperCase() + item.title.toLowerCase().slice(1)}</span>
                                     </Link>
                                 }
                             </div>
