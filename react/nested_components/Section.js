@@ -56,7 +56,7 @@ class Section extends Component {
                         {section.sectionTitle}
 
                         {section.image &&
-                            <img src={section.image} />
+                            <img className={section.display && section.display == 'PC' ? ` d-none d-lg-block d-xl-none`:''} src={section.image} />
                         }
                     </a>
                 </div>

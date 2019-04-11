@@ -291,6 +291,11 @@ Megamenu.getSchema = (props) => {
                                                                             title: 'Image',
                                                                             type: 'string'
                                                                         },
+                                                                        display: {
+                                                                            title: 'Display',
+                                                                            type: 'string',
+                                                                            enum: ['Mobile & PC', 'PC', 'Mobile']
+                                                                        },
                                                                         sectionLinks: {
                                                                             title: 'Section Links',
                                                                             type: 'array',

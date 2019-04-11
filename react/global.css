@@ -8,8 +8,14 @@
     .mainNav nav .navbar-nav.navgroup:nth-child(2) .dropdown .dropdown-section .dropdown-section-title a {
         color:#BDBDBD;
     }
+    #menu .d-xl-none{
+        display: block !important;
+    }
 }
 @media (max-width: 991px) {
+    #menu .d-xl-none{
+        display: none !important;
+    }
     header .navbar .navbar-toggler span.navbar-toggler-icon{
         background-image: url("./img/menu_mobile.svg");
         width: 38px;
