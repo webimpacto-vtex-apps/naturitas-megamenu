@@ -1,3 +1,17 @@
+.mainNav nav .dropdown .dropdown-menu{
+    display: block;
+    visibility: hidden;
+    -webkit-transition: .4s ease-in-out;
+    transition: .4s ease-in-out;
+    transition-delay: .2s;
+    overflow: hidden;
+    height: 0;
+}
+
+.mainNav nav .dropdown .dropdown-menu.show{
+    visibility: visible;
+}
+
 @media (min-width: 992px) {
     div[data-extension-point="store/header/megamenu"] {
         width: 100%;

@@ -17,7 +17,7 @@ class Group extends Component {
                 }
                 {group.menuParentItems && group.menuParentItems.map((item, key) => {
                     return (
-                       <Item key={key} item={item} 
+                       <Item key={key} keyNumber={key} item={item} 
                        changeItemDropdownShow={this.props.changeItemDropdownShow} 
                        changeSectionDropdownShow={this.props.changeSectionDropdownShow}
                        handleMenu={this.props.handleMenu}

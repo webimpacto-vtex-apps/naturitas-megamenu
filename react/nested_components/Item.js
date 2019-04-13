@@ -8,10 +8,12 @@ class Item extends Component {
     constructor(props) {
         super(props)
         this.dropdown = React.createRef();
+        this.dropdownContent = React.createRef();
         this.state = {
             showItemDropdown: false,
             isSectionDropdownShow: false
         }
+        
     }
 
     shouldComponentUpdate(nextProps, nextState) {
@@ -32,19 +34,31 @@ class Item extends Component {
     toogleItemDropdown = (e) => {
         console.log(!this.state.showItemDropdown && this.props.item.rows.length > 0);
 
-        //if(!this.state.showItemDropdown && this.props.item.rows.length > 0){
-        console.log("PREVENT");
         e.preventDefault();
         this.props.changeItemDropdownShow(!this.state.showItemDropdown)
         this.setState({
             showItemDropdown: !this.state.showItemDropdown
         })
-        //}
+        
     }
 
     showItemDropdown = (show) => {
         this.props.changeItemDropdownShow(show)
-        this.setState({ showItemDropdown: show })
+
+        let newState = { showItemDropdown: show }
+
+        
+        let originalHeight = document.querySelector(`#${this.dropdown.current.id} .dropdown-container`).offsetHeight
+        
+        
+        this.setState(newState, () => {
+            if(this.state.showItemDropdown){
+                this.dropdown.current.style.height = originalHeight+"px";
+            }
+            else{
+                this.dropdown.current.style.height = 0+"px";
+            }
+        })
     }
 
     itemMouseEnter = (e) => {
@@ -118,7 +132,7 @@ class Item extends Component {
                 {itemLink}
 
                 {item.rows.length > 0 &&
-                    <div className={"dropdown-menu " + (this.state.showItemDropdown ? ' show ' : '') + (this.state.isSectionDropdownShow ? ' blockYScroll ' : '')
+                    <div id={"dropdown-menu"+this.props.keyNumber} className={"dropdown-menu " + (this.state.showItemDropdown ? ' show ' : '') + (this.state.isSectionDropdownShow ? ' blockYScroll ' : '')
                         + (item.isGroupMobile ? 'isGroup' : '')} ref={this.dropdown} aria-labelledby="navbarDropdown">
                         {!item.isGroupMobile &&
                             <div className={"return col-lg-3 d-lg-none"} onClick={(e) => this.showItemDropdown(false)}>
