@@ -64,6 +64,8 @@
     #menu .navbar #navbarSupportedContent,
     .mainNav nav .dropdown .dropdown-menu.isGroup {
         background-color: #fbfaf9;
+    }
+    .mainNav nav .dropdown .dropdown-menu.isGroup{
         height: auto !important;
     }
     .mainNav nav .dropdown .dropdown-menu .return{
