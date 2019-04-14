@@ -1,18 +1,18 @@
-.mainNav nav .dropdown .dropdown-menu{
-    display: block;
-    visibility: hidden;
-    -webkit-transition: .4s ease-in-out;
-    transition: .4s ease-in-out;
-    transition-delay: .2s;
-    overflow: hidden;
-    height: 0;
-}
-
-.mainNav nav .dropdown .dropdown-menu.show{
-    visibility: visible;
-}
-
 @media (min-width: 992px) {
+    .mainNav nav .dropdown .dropdown-menu{
+        display: block;
+        visibility: hidden;
+        -webkit-transition: .4s ease-in-out;
+        transition: .4s ease-in-out;
+        transition-delay: .2s;
+        overflow: hidden;
+        height: 0;
+    }
+    
+    .mainNav nav .dropdown .dropdown-menu.show{
+        visibility: visible;
+    }
+
     div[data-extension-point="store/header/megamenu"] {
         width: 100%;
     }
@@ -50,9 +50,11 @@
     .mainNav nav .dropdown .dropdown-section .dropdown-section-items{
         padding-bottom: 15px;
     }
-    .mainNav nav .dropdown .dropdown-menu{
+    .mainNav nav .dropdown .dropdown-menu:not(.isGroup){
         height: calc(100vh - 95px) !important;
     }
+
+    
     .mainNav nav .navgroup:nth-of-type(1) .nav-item .nav-link span.content-img {
         min-width: 35px;
     }
@@ -62,6 +64,7 @@
     #menu .navbar #navbarSupportedContent,
     .mainNav nav .dropdown .dropdown-menu.isGroup {
         background-color: #fbfaf9;
+        height: auto !important;
     }
     .mainNav nav .dropdown .dropdown-menu .return{
         text-transform: lowercase;
