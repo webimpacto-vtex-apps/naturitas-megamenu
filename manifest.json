@@ -1,7 +1,11 @@
 {
   "name": "naturitas-megamenu",
   "vendor": "webimpacto",
+<<<<<<< HEAD
   "version": "0.1.19",
+=======
+  "version": "0.1.18",
+>>>>>>> 6031c4de2ee05c8757ec3bd56d60b3a66e0cd46b
   "title": "Naturitas Megamenu",
   "description": "",
   "mustUpdateAt": "2021-11-22",

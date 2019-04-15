@@ -25,6 +25,13 @@
     #menu .d-xl-none{
         display: block !important;
     }
+    .mainNav nav .dropdown .dropdown-section .dropdown-section-items .sectionLinks a.hasImage .sectionLink span{
+        max-width: 160px;
+        min-height: 44px;
+    }
+    .mainNav nav .dropdown .dropdown-section .dropdown-section-items .sectionLinks a.hasImage .sectionLink{
+        float: left;
+    }
 }
 @media (max-width: 991px) {
     #menu .d-xl-none{
