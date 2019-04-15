@@ -100,6 +100,8 @@ class Megamenu extends Component {
         if(this.props.profile.profile){
             if(this.props.profile.profile.firstName){
                 userName = this.props.profile.profile.firstName
+            }else{
+                userName = <FormattedMessage id="header.hello" />
             }
             linkAccount = <div><a href="/no-cache/user/logout"><FormattedMessage id="header.logout" /></a></div>
         }
