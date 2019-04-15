@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { Link } from 'render' 
+import React, { Component, PureComponent } from 'react';
+import { Link } from 'render'
 import SectionLink from './SectionLink';
 import enhanceWithClickOutside from "react-click-outside";
 
 
 
-class Section extends Component {
+class Section extends PureComponent {
     constructor(props) {
         super(props)
         this.state = {
@@ -13,12 +13,12 @@ class Section extends Component {
         }
     }
 
-    shouldComponentUpdate(nextProps, nextState){
+    /*shouldComponentUpdate(nextProps, nextState){
         if(nextState.showSectionDropdown!=this.state.showSectionDropdown){
             return true;
         }
         return false;
-    }
+    }*/
 
     handleMenu = () => {
         this.props.handleMenu();
@@ -40,25 +40,40 @@ class Section extends Component {
     }
 
     handleClickOutside() {
-        if(this.state.showSectionDropdown){
-          this.toogleSectionDropdown()
+        if (this.state.showSectionDropdown) {
+            this.toogleSectionDropdown()
         }
-      }
+    }
 
     render() {
         const { section, parent, translates } = this.props
 
+        let sectionLink =
+            <Link to={section.sectionURL} onClick={this.handleMenu}>
+
+                {section.sectionTitle}
+
+                {section.image &&
+                    <img className={section.display && section.display == 'PC' ? ` d-none d-lg-block d-xl-none` : ''} src={section.image} />
+                }
+            </Link>
+
+        if (this.props.width <= 991) {
+            sectionLink =
+                <a href={section.sectionURL} onClick={(e) => this.clickSectionDropdown(e)}>
+
+                    {section.sectionTitle}
+
+                    {section.image &&
+                        <img className={section.display && section.display == 'PC' ? ` d-none d-lg-block d-xl-none` : ''} src={section.image} />
+                    }
+                </a>
+        }
+
         return (
             <div className="dropdown-section">
                 <div className={"dropdown-section-title " + (section.sectionLinks.length > 0 ? 'hasItems' : '')}>
-                    <a href={section.sectionURL} onClick={(e) => this.clickSectionDropdown(e)}>
-
-                        {section.sectionTitle}
-
-                        {section.image &&
-                            <img className={section.display && section.display == 'PC' ? ` d-none d-lg-block d-xl-none`:''} src={section.image} />
-                        }
-                    </a>
+                    {sectionLink}
                 </div>
                 <div className={"dropdown-section-items" + (this.state.showSectionDropdown ? ' show ' : '')}>
                     <div className={"return col-lg-3 d-lg-none"} onClick={(e) => this.clickSectionDropdown(e)}>

@@ -38,15 +38,26 @@
     header #menu .icon.tlf{
         display: none;
     }
-    header{
+    .render-container:not(.showmenu) header{
         position: fixed;
+    }
+
+    @supports (-webkit-overflow-scrolling: touch) {
+        .render-provider {
+            transition: 0s !important;
+        }
+    }
+
+    .render-container:not(.showmenu){
+        margin-top: 138px;
+    }
+
+    header{
         top: 0;
         z-index: 2;
         width: 100%;
     }
-    .render-container{
-        margin-top: 138px;
-    }
+   
     .mainNav nav .dropdown .dropdown-section .dropdown-section-items{
         padding-bottom: 15px;
     }

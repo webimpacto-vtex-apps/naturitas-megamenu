@@ -1,7 +1,7 @@
 {
   "name": "naturitas-megamenu",
   "vendor": "webimpacto",
-  "version": "0.1.17",
+  "version": "0.1.19",
   "title": "Naturitas Megamenu",
   "description": "",
   "mustUpdateAt": "2021-11-22",
@@ -9,6 +9,10 @@
   "settingsSchema": {},
   "builders": {
     "pages": "0.x",
-    "react": "2.x"
+    "react": "2.x",
+    "messages": "1.0"
+  },
+  "dependencies": {
+    "vtex.store-graphql": "2.x"
   }
 }

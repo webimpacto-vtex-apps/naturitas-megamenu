@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import { Link } from 'render'
 import Row from './Row';
 import enhanceWithClickOutside from "react-click-outside";
 
 
-class Item extends Component {
+class Item extends PureComponent {
     constructor(props) {
         super(props)
         this.dropdown = React.createRef();
@@ -16,7 +16,7 @@ class Item extends Component {
         
     }
 
-    shouldComponentUpdate(nextProps, nextState) {
+    /*shouldComponentUpdate(nextProps, nextState) {
         if (
             (nextState.showItemDropdown != this.state.showItemDropdown) ||
             (nextState.isSectionDropdownShow != this.state.isSectionDropdownShow)
@@ -24,7 +24,7 @@ class Item extends Component {
             return true
         }
         return false;
-    }
+    }*/
 
     handleMenu = () => {
         this.props.handleMenu();
@@ -32,8 +32,6 @@ class Item extends Component {
     }
 
     toogleItemDropdown = (e) => {
-        console.log(!this.state.showItemDropdown && this.props.item.rows.length > 0);
-
         e.preventDefault();
         this.props.changeItemDropdownShow(!this.state.showItemDropdown)
         this.setState({
@@ -159,7 +157,7 @@ class Item extends Component {
                                 <Row key={keyRow} row={row}
                                     changeSectionDropdownShow={this.changeSectionDropdownShow}
                                     handleMenu={this.handleMenu} parent={item.title} 
-                                    translates={translates}/>
+                                    translates={translates} width={this.props.width} height={this.props.height}/>
                             )
                         }
                         )}

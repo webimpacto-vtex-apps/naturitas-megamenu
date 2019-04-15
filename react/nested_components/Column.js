@@ -16,7 +16,7 @@ class Column extends Component {
                             section={section} parent={parentTitle}
                             changeSectionDropdownShow={this.props.changeSectionDropdownShow}
                             handleMenu={this.props.handleMenu}
-                            translates={translates}/>
+                            translates={translates} width={this.props.width} height={this.props.height}/>
                     )
                 })}
             </div>

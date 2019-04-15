@@ -17,7 +17,7 @@ class Row extends Component {
                             changeSectionDropdownShow={this.props.changeSectionDropdownShow}
                             handleMenu={this.props.handleMenu} 
                             parentTitle={parent}
-                            translates={translates}/>
+                            translates={translates} width={this.props.width} height={this.props.height}/>
                     )
                 })}
             </div>

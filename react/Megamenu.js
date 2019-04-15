@@ -3,6 +3,10 @@ import Swipe from 'react-easy-swipe';
 import Group from './nested_components/Group';
 import './global.css'
 import img from './img/menu_mobile.svg'
+import { graphql } from 'react-apollo'
+import GET_PROFILE from './graphql/getProfile.gql'
+import { Link } from 'render' 
+import { FormattedMessage } from 'react-intl'
 
 class Megamenu extends Component {
     constructor(props) {
@@ -14,13 +18,23 @@ class Megamenu extends Component {
         this.state = {
             showmenu: false,
             isItemDropdownShow: false,
-            isSectionDropdownShow: false
+            isSectionDropdownShow: false,
+            width: 0
         }
-
-
     }
 
+      
+    componentWillUnmount() {
+        window.removeEventListener('resize', this.updateWindowDimensions);
+    }
+
+    updateWindowDimensions = () => {
+        this.setState({ width: window.innerWidth});
+      }
+
     componentDidMount(){
+        this.updateWindowDimensions();
+        window.addEventListener('resize', this.updateWindowDimensions);
         if ('ontouchstart' in document.documentElement) {
             document.body.style.cursor = 'pointer';
           }
@@ -80,6 +94,15 @@ class Megamenu extends Component {
 
     render() {
         const { menuParentItems, menuGroups, translates } = this.props
+
+        let userName = translates.bienvenido
+        let linkAccount = <div onClick={this.handleMenu.bind(this)}><Link to="/account"><span>{translates && translates.iniciarSesion}</span></Link></div>
+        if(this.props.profile.profile){
+            if(this.props.profile.profile.firstName){
+                userName = this.props.profile.profile.firstName
+            }
+            linkAccount = <div><a href="/no-cache/user/logout"><FormattedMessage id="header.logout" /></a></div>
+        }
         
         return (
             <Swipe
@@ -105,8 +128,9 @@ class Megamenu extends Component {
                         </div>
 
                         <div className={"menu-mobile-account d-flex d-lg-none"}>
-                            <div className={"mr-auto"}>{translates && translates.bienvenido}</div>
-                            <div><a href="/account">{translates && translates.iniciarSesion}</a></div>
+                            <div className={"mr-auto"}><span>{userName}</span></div>
+                            {linkAccount}
+                            
                         </div>
 
                         <div className="menuItemsContainer d-flex flex-column flex-lg-row w-100">
@@ -116,7 +140,7 @@ class Megamenu extends Component {
                                             changeItemDropdownShow={this.changeItemDropdownShow} 
                                             changeSectionDropdownShow={this.changeSectionDropdownShow}
                                             handleMenu={this.handleMenu.bind(this)}
-                                            translates={translates}/>
+                                            translates={translates} width={this.state.width} height={this.state.height}/>
                                 )
                             })}
                         </div>
@@ -389,4 +413,9 @@ Megamenu.getSchema = (props) => {
     }
 }
 
-export default Megamenu
+const options = {
+    name: 'profile',
+    options: () => ({ ssr: false }),
+}
+
+export default graphql(GET_PROFILE, options)(Megamenu)
