@@ -5,7 +5,7 @@ import './global.css'
 import img from './img/menu_mobile.svg'
 import { graphql } from 'react-apollo'
 import GET_PROFILE from './graphql/getProfile.gql'
-import { Link } from 'render' 
+import { Link } from 'render'
 import { FormattedMessage } from 'react-intl'
 
 class Megamenu extends Component {
@@ -23,34 +23,34 @@ class Megamenu extends Component {
         }
     }
 
-      
+
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateWindowDimensions);
     }
 
     updateWindowDimensions = () => {
-        this.setState({ width: window.innerWidth});
-      }
+        this.setState({ width: window.innerWidth });
+    }
 
-    componentDidMount(){
+    componentDidMount() {
         this.updateWindowDimensions();
         window.addEventListener('resize', this.updateWindowDimensions);
         if ('ontouchstart' in document.documentElement) {
             document.body.style.cursor = 'pointer';
-          }
+        }
     }
 
     changeItemDropdownShow = (show) => {
-        if(show != this.state.isItemDropdownShow){
+        if (show != this.state.isItemDropdownShow) {
             this.Megamenu.current.scrollTop = 0;
-            this.setState({isItemDropdownShow: show})
+            this.setState({ isItemDropdownShow: show })
         }
     }
 
     changeSectionDropdownShow = show => {
-        if(show != this.state.isSectionDropdownShow){
+        if (show != this.state.isSectionDropdownShow) {
             this.Megamenu.current.scrollTop = 0;
-            this.setState({isSectionDropdownShow: show})
+            this.setState({ isSectionDropdownShow: show })
         }
     }
 
@@ -97,15 +97,15 @@ class Megamenu extends Component {
 
         let userName = translates.bienvenido
         let linkAccount = <div onClick={this.handleMenu.bind(this)}><Link to="/account"><span>{translates && translates.iniciarSesion}</span></Link></div>
-        if(this.props.profile.profile){
-            if(this.props.profile.profile.firstName){
+        if (this.props.profile.profile) {
+            if (this.props.profile.profile.firstName) {
                 userName = this.props.profile.profile.firstName
-            }else{
+            } else {
                 userName = <FormattedMessage id="header.hello" />
             }
             linkAccount = <div><a href="/no-cache/user/logout"><FormattedMessage id="header.logout" /></a></div>
         }
-        
+
         return (
             <Swipe
                 onSwipeStart={this.onSwipeStart.bind(this)}
@@ -119,8 +119,8 @@ class Megamenu extends Component {
                     </button>
 
 
-                    <div className={"collapse navbar-collapse" + ((this.state.isItemDropdownShow || this.state.isSectionDropdownShow) ? ' blockYScroll ' : '')} 
-                     ref={this.Megamenu} id="navbarSupportedContent">
+                    <div className={"collapse navbar-collapse" + ((this.state.isItemDropdownShow || this.state.isSectionDropdownShow) ? ' blockYScroll ' : '')}
+                        ref={this.Megamenu} id="navbarSupportedContent">
 
                         <div className={"header-menu-mobile d-flex d-lg-none"}>
                             <div className="nav-closer" onClick={(e) => this.handleMenu()}>
@@ -132,17 +132,17 @@ class Megamenu extends Component {
                         <div className={"menu-mobile-account d-flex d-lg-none"}>
                             <div className={"mr-auto"}><span>{userName}</span></div>
                             {linkAccount}
-                            
+
                         </div>
 
                         <div className="menuItemsContainer d-flex flex-column flex-lg-row w-100">
                             {menuGroups && menuGroups.map((group, groupKey) => {
                                 return (
                                     <Group group={group} key={groupKey}
-                                            changeItemDropdownShow={this.changeItemDropdownShow} 
-                                            changeSectionDropdownShow={this.changeSectionDropdownShow}
-                                            handleMenu={this.handleMenu.bind(this)}
-                                            translates={translates} width={this.state.width} height={this.state.height}/>
+                                        changeItemDropdownShow={this.changeItemDropdownShow}
+                                        changeSectionDropdownShow={this.changeSectionDropdownShow}
+                                        handleMenu={this.handleMenu.bind(this)}
+                                        translates={translates} width={this.state.width} height={this.state.height} />
                                 )
                             })}
                         </div>
@@ -158,6 +158,12 @@ class Megamenu extends Component {
         )
     }
 }
+
+Megamenu.defaultProps = {
+    translates: {},
+    menuGroups: []
+};
+
 
 Megamenu.uiSchema = {
     menuGroups: {
@@ -379,7 +385,7 @@ Megamenu.getSchema = (props) => {
 
 
             },
-            translates:{
+            translates: {
                 title: 'Traducciones textos ',
                 description: 'Traducciones textos Mega Menu',
                 type: 'object',
@@ -393,18 +399,18 @@ Megamenu.getSchema = (props) => {
                         title: 'IniciarSesion',
                         type: 'string',
                         default: 'Iniciar sesión'
-                    }, 
-                    volver:{
+                    },
+                    volver: {
                         title: 'Volver',
                         type: 'string',
                         default: 'Volver'
                     },
-                    volverA:{
+                    volverA: {
                         title: 'Volver a',
                         type: 'string',
                         default: 'Volver a'
                     },
-                    verTodo:{
+                    verTodo: {
                         title: 'Ver todo',
                         type: 'string',
                         default: 'Ver todo'
