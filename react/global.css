@@ -53,6 +53,9 @@
         .render-provider {
             transition: 0s !important;
         }
+        .navbar #navbarSupportedContent{ 
+            height: calc(100vh - 95px) !important; 
+        }
     }
 
     .render-container:not(.showmenu){
@@ -92,5 +95,7 @@
     .mainNav nav .dropdown .dropdown-menu .return:first-letter {
         text-transform: capitalize;
     }
-    
+    .render-provider.showmenu #navbarSupportedContent{
+        transition: 200ms; 
+    }
 }
