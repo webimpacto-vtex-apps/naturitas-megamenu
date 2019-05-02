@@ -45,6 +45,12 @@
     html[lang="it"] header .navbar .navbar-toggler span.navbar-toggler-icon {
         background-image: url("./img/menu_mobile_it.svg");
     }
+    html[lang="pt"] header .navbar .navbar-toggler span.navbar-toggler-icon {
+        background-image: url("./img/menu_mobile_PT.svg");
+    }
+    html[lang="fr"] header .navbar .navbar-toggler span.navbar-toggler-icon {
+        background-image: url("./img/menu_mobile_FR.svg");
+    }
     header #menu .icon.tlf{
         display: none;
     }
