@@ -45,18 +45,22 @@ class Item extends PureComponent {
 
         let newState = { showItemDropdown: show }
 
+        let originalHeight = 0;
+
+        if(this.dropdown && this.dropdown.current){
+            originalHeight = document.querySelector(`#${this.dropdown.current.id} .dropdown-container`).offsetHeight
+
+            this.setState(newState, () => {
+                if(this.state.showItemDropdown){
+                    this.dropdown.current.style.height = originalHeight+"px";
+                }
+                else{
+                    this.dropdown.current.style.height = 0+"px";
+                }
+            })
+        }
         
-        let originalHeight = document.querySelector(`#${this.dropdown.current.id} .dropdown-container`).offsetHeight
         
-        
-        this.setState(newState, () => {
-            if(this.state.showItemDropdown){
-                this.dropdown.current.style.height = originalHeight+"px";
-            }
-            else{
-                this.dropdown.current.style.height = 0+"px";
-            }
-        })
     }
 
     itemMouseEnter = (e) => {
