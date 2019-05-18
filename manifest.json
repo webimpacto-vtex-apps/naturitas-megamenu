@@ -5,12 +5,10 @@
   "title": "Naturitas Megamenu",
   "description": "",
   "mustUpdateAt": "2021-11-22",
-  "categories": [],
-  "settingsSchema": {},
   "builders": {
-    "pages": "0.x",
-    "react": "2.x",
-    "messages": "1.0"
+    "store": "0.x",
+    "react": "3.x",
+    "messages": "1.x"
   },
   "dependencies": {
     "vtex.store-graphql": "2.x"

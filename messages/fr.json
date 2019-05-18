@@ -1,4 +1,4 @@
 {
-    "header.logout":"Se déconnecter",
-    "header.hello":"Salut"
+  "store/header.logout": "Se déconnecter",
+  "store/header.hello": "Salut"
 }

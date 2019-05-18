@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import Swipe from 'react-easy-swipe';
-import Group from './nested_components/Group';
+import React, { Component } from 'react'
+import Swipe from 'react-easy-swipe'
+import Group from './nested_components/Group'
 import './global.css'
-import img from './img/menu_mobile.svg'
 import { graphql } from 'react-apollo'
 import GET_PROFILE from './graphql/getProfile.gql'
-import { Link } from 'render'
+import { Link } from 'vtex.render-runtime'
 import { FormattedMessage } from 'react-intl'
 
 class Megamenu extends Component {
@@ -101,9 +100,9 @@ class Megamenu extends Component {
             if (this.props.profile.profile.firstName) {
                 userName = this.props.profile.profile.firstName
             } else {
-                userName = <FormattedMessage id="header.hello" />
+                userName = <FormattedMessage id="store/header.hello" />
             }
-            linkAccount = <div><a href="/no-cache/user/logout"><FormattedMessage id="header.logout" /></a></div>
+            linkAccount = <div><a href="/no-cache/user/logout"><FormattedMessage id="store/header.logout" /></a></div>
         }
 
         return (
