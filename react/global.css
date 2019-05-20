@@ -1,114 +1,105 @@
 @media (min-width: 992px) {
-    .mainNav nav .dropdown .dropdown-menu{
-        display: block;
-        visibility: hidden;
-        -webkit-transition: .4s ease-in-out;
-        transition: .4s ease-in-out;
-        transition-delay: .2s;
-        overflow: hidden;
-        height: 0;
-    }
-    
-    .mainNav nav .dropdown .dropdown-menu.show{
-        visibility: visible;
-    }
-
-    div[data-extension-point="store/header/megamenu"] {
-        width: 100%;
-    }
-    .mainNav nav .nav-item .nav-link img{
-        display: none;
-    }
-    .mainNav nav .navbar-nav.navgroup:nth-child(2) .dropdown .dropdown-section .dropdown-section-title a {
-        color:#BDBDBD;
-    }
-    #menu .d-xl-none{
-        display: block !important;
-    }
-    .mainNav nav .dropdown .dropdown-section .dropdown-section-items .sectionLinks a.hasImage .sectionLink span{
-        max-width: 160px;
-        min-height: 44px;
-    }
-    .mainNav nav .dropdown .dropdown-section .dropdown-section-items .sectionLinks a.hasImage .sectionLink{
-        float: left;
-    }
+  .mainNav nav .dropdown .dropdown-menu {
+    display: block;
+    visibility: hidden;
+    -webkit-transition: 0.4s ease-in-out;
+    transition: 0.4s ease-in-out;
+    transition-delay: 0.2s;
+    overflow: hidden;
+    height: 0;
+  }
+  .mainNav nav .dropdown .dropdown-menu.show {
+    visibility: visible;
+  }
+  div[data-extension-point="store/header/megamenu"] {
+    width: 100%;
+  }
+  .mainNav nav .nav-item .nav-link img {
+    display: none;
+  }
+  .mainNav nav .navbar-nav.navgroup:nth-child(2) .dropdown .dropdown-section .dropdown-section-title a {
+    color: #BDBDBD;
+  }
+  #menu .d-xl-none {
+    display: block !important;
+  }
+  .mainNav nav .dropdown .dropdown-section .dropdown-section-items .sectionLinks a.hasImage .sectionLink span {
+    max-width: 160px;
+    min-height: 44px;
+  }
+  .mainNav nav .dropdown .dropdown-section .dropdown-section-items .sectionLinks a.hasImage .sectionLink {
+    float: left;
+  }
 }
 @media (max-width: 991px) {
-    #menu .d-xl-none{
-        display: none !important;
+  #menu .d-xl-none {
+    display: none !important;
+  }
+  header .navbar .navbar-toggler span.navbar-toggler-icon {
+    background-image: url("./img/menu_mobile.svg");
+    width: 38px;
+    height: 26px;
+  }
+  html[lang="it"] header .navbar .navbar-toggler span.navbar-toggler-icon {
+    background-image: url("./img/menu_mobile_it.svg");
+  }
+  html[lang="pt"] header .navbar .navbar-toggler span.navbar-toggler-icon {
+    background-image: url("./img/menu_mobile_PT.svg");
+  }
+  html[lang="fr"] header .navbar .navbar-toggler span.navbar-toggler-icon {
+    background-image: url("./img/menu_mobile_FR.svg");
+  }
+  header #menu .icon.tlf {
+    display: none;
+  }
+  .render-container:not(.showmenu) header {
+    position: fixed;
+  }
+  .mainNavContainer .navbar #navbarSupportedContent {
+    height: calc(100vh - 50px);
+  }
+  @supports (-webkit-overflow-scrolling: touch) {
+    .render-provider {
+      transition: 0s !important;
     }
-    header .navbar .navbar-toggler span.navbar-toggler-icon{
-        background-image: url("./img/menu_mobile.svg");
-        width: 38px;
-        height: 26px;
+    .navbar #navbarSupportedContent {
+      height: calc(100vh - 95px) !important;
     }
-    html[lang="it"] header .navbar .navbar-toggler span.navbar-toggler-icon {
-        background-image: url("./img/menu_mobile_it.svg");
-    }
-    html[lang="pt"] header .navbar .navbar-toggler span.navbar-toggler-icon {
-        background-image: url("./img/menu_mobile_PT.svg");
-    }
-    html[lang="fr"] header .navbar .navbar-toggler span.navbar-toggler-icon {
-        background-image: url("./img/menu_mobile_FR.svg");
-    }
-    header #menu .icon.tlf{
-        display: none;
-    }
-    .render-container:not(.showmenu) header{
-        position: fixed;
-    }
-
-    .mainNavContainer .navbar #navbarSupportedContent {
-        height: calc(100vh - 50px);
-    }
-
-    @supports (-webkit-overflow-scrolling: touch) {
-        .render-provider {
-            transition: 0s !important;
-        }
-        .navbar #navbarSupportedContent{ 
-            height: calc(100vh - 95px) !important; 
-        }
-    }
-
-    .render-container:not(.showmenu){
-        margin-top: 138px;
-    }
-
-    header{
-        top: 0;
-        z-index: 2;
-        width: 100%;
-    }
-   
-    .mainNav nav .dropdown .dropdown-section .dropdown-section-items{
-        padding-bottom: 15px;
-    }
-    .mainNav nav .dropdown .dropdown-menu:not(.isGroup){
-        height: calc(100vh - 95px) !important;
-    }
-
-    
-    .mainNav nav .navgroup:nth-of-type(1) .nav-item .nav-link span.content-img {
-        min-width: 35px;
-    }
-    .render-container.showmenu{
-        margin-top: 0px;
-    }
-    #menu .navbar #navbarSupportedContent,
-    .mainNav nav .dropdown .dropdown-menu.isGroup {
-        background-color: #fbfaf9;
-    }
-    .mainNav nav .dropdown .dropdown-menu.isGroup{
-        height: auto !important;
-    }
-    .mainNav nav .dropdown .dropdown-menu .return{
-        text-transform: lowercase;
-    }
-    .mainNav nav .dropdown .dropdown-menu .return:first-letter {
-        text-transform: capitalize;
-    }
-    .render-provider.showmenu #navbarSupportedContent{
-        transition: 200ms; 
-    }
+  }
+  .render-container:not(.showmenu) {
+    margin-top: 138px;
+  }
+  header {
+    top: 0;
+    z-index: 2;
+    width: 100%;
+  }
+  .mainNav nav .dropdown .dropdown-section .dropdown-section-items {
+    padding-bottom: 15px;
+  }
+  .mainNav nav .dropdown .dropdown-menu:not(.isGroup) {
+    height: calc(100vh - 95px) !important;
+  }
+  .mainNav nav .navgroup:nth-of-type(1) .nav-item .nav-link span.content-img {
+    min-width: 35px;
+  }
+  .render-container.showmenu {
+    margin-top: 0px;
+  }
+  #menu .navbar #navbarSupportedContent,
+  .mainNav nav .dropdown .dropdown-menu.isGroup {
+    background-color: #fbfaf9;
+  }
+  .mainNav nav .dropdown .dropdown-menu.isGroup {
+    height: auto !important;
+  }
+  .mainNav nav .dropdown .dropdown-menu .return {
+    text-transform: lowercase;
+  }
+  .mainNav nav .dropdown .dropdown-menu .return:first-letter {
+    text-transform: capitalize;
+  }
+  .render-provider.showmenu #navbarSupportedContent {
+    transition: 200ms;
+  }
 }
