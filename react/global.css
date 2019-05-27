@@ -4,7 +4,7 @@
     visibility: hidden;
     -webkit-transition: 0.4s ease-in-out;
     transition: 0.4s ease-in-out;
-    transition-delay: .2s;
+    transition-delay: 0.2s;
     overflow: hidden;
     height: 0;
   }
@@ -39,18 +39,18 @@
     display: none !important;
   }
   header .navbar .navbar-toggler span.navbar-toggler-icon {
-    background-image: url("img/menu_mobile.svg");
+    background-image: url("./img/menu_mobile.svg");
     width: 38px;
     height: 26px;
   }
   html[lang="it"] header .navbar .navbar-toggler span.navbar-toggler-icon {
-    background-image: url("img/menu_mobile_it.svg");
+    background-image: url("./img/menu_mobile_it.svg");
   }
   html[lang="pt"] header .navbar .navbar-toggler span.navbar-toggler-icon {
-    background-image: url("img/menu_mobile_PT.svg");
+    background-image: url("./img/menu_mobile_PT.svg");
   }
   html[lang="fr"] header .navbar .navbar-toggler span.navbar-toggler-icon {
-    background-image: url("img/menu_mobile_FR.svg");
+    background-image: url("./img/menu_mobile_FR.svg");
   }
   header #menu .icon.tlf {
     display: none;
@@ -59,14 +59,14 @@
     position: fixed;
   }
   .mainNavContainer .navbar #navbarSupportedContent {
-    height: calc(50vh);
+    height: calc(100vh - 50px);
   }
   @supports (-webkit-overflow-scrolling: touch) {
     .render-provider {
       transition: 0s !important;
     }
     .navbar #navbarSupportedContent {
-      height: calc(5vh) !important;
+      height: calc(100vh - 95px) !important;
     }
   }
   .render-container:not(.showmenu) {
@@ -81,7 +81,7 @@
     padding-bottom: 15px;
   }
   .mainNav nav .dropdown .dropdown-menu:not(.isGroup) {
-    height: calc(5vh) !important;
+    height: calc(100vh - 95px) !important;
   }
   .mainNav nav .navgroup:nth-of-type(1) .nav-item .nav-link span.content-img {
     min-width: 35px;
