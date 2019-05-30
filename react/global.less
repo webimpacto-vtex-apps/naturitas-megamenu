@@ -115,3 +115,14 @@
         transition: 200ms; 
     }
 }
+
+@media (min-width: 992px) {
+  .menu-main-link-title {
+    text-transform: lowercase;
+    display: inline-block; // ::first-letter don't work on inline elements
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+}

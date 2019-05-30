@@ -106,3 +106,12 @@
     transition: 200ms;
   }
 }
+@media (min-width: 992px) {
+  .menu-main-link-title {
+    text-transform: lowercase;
+    display: inline-block;
+  }
+  .menu-main-link-title::first-letter {
+    text-transform: uppercase;
+  }
+}

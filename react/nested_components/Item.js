@@ -107,7 +107,7 @@ class Item extends PureComponent {
                 {item.icon && item.iconPosition == 'Left' &&
                    <span className="content-img"> <img style={{ marginRight: '5px' }} src={item.icon} /></span>
                 }
-                <span>{item.title}</span>
+                <span className={"menu-main-link-title"}>{item.title}</span>
                 {item.icon && item.iconPosition == 'Right' &&
                    <span className="content-img"> <img style={{ marginLeft: '5px' }} src={item.icon} /></span>
                 }
