@@ -106,3 +106,8 @@
     transition: 200ms;
   }
 }
+@media (max-width: 991.98px){
+  .render-provider.showmenu:before {
+      pointer-events: auto;
+  }
+  }

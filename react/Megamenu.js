@@ -26,6 +26,7 @@ class Megamenu extends Component {
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateWindowDimensions);
+        document.removeEventListener('mousedown', this.handleClickOutside);
     }
 
     updateWindowDimensions = () => {
@@ -38,6 +39,7 @@ class Megamenu extends Component {
         if ('ontouchstart' in document.documentElement) {
             document.body.style.cursor = 'pointer';
         }
+        document.addEventListener('mousedown', this.handleClickOutside);
     }
 
     changeItemDropdownShow = (show) => {
@@ -91,6 +93,13 @@ class Megamenu extends Component {
         }
         document.getElementsByClassName('render-provider')[0].removeAttribute('style');
     }
+
+    handleClickOutside = event => {
+        //console.log(event.target)
+        if(event.target.classList.contains("showmenu")){
+         document.getElementsByClassName('nav-closer')[0].click();
+        } 
+     }
 
     render() {
         const { menuParentItems, menuGroups, translates } = this.props
