@@ -21,7 +21,8 @@ class Group extends Component {
                        changeItemDropdownShow={this.props.changeItemDropdownShow} 
                        changeSectionDropdownShow={this.props.changeSectionDropdownShow}
                        handleMenu={this.props.handleMenu}
-                       translates={translates} width={this.props.width} height={this.props.height}/>
+                       translates={translates} width={this.props.width} height={this.props.height}
+                       login={this.props.login}/>
                     )
                 })}
 

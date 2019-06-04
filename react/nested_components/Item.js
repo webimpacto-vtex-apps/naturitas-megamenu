@@ -114,13 +114,18 @@ class Item extends PureComponent {
             </span>
         )
 
+        const isDifferentUrlForLoginAll=
+        (this.props.isDifferentUrlForLogin && this.props.urlForLogin ? true : false)  
+        
+        
+
         const itemLink =
         (!this.state.showItemDropdown && this.props.item.rows.length > 0)
-            ? (<a className={"nav-link" + (item.isGroupMobile ? ' menuTitle ' : '')} to={item.url} id="navbarDropdown"
+            ? (<a className={"nav-link" + (item.isGroupMobile ? ' menuTitle ' : '')} href={(isDifferentUrlForLoginAll && (this.props.login != null ) ? item.urlForLogin:item.url)} id="navbarDropdown"
                 onClick={(e) => this.toogleItemDropdown(e)}>
                 {itemLinkContent}
             </a>)
-            : (<Link className={"nav-link" + (item.isGroupMobile ? ' menuTitle ' : '')} to={item.url} id="navbarDropdown"
+            : (<Link className={"nav-link" + (item.isGroupMobile ? ' menuTitle ' : '')} to={(isDifferentUrlForLoginAll && (this.props.login != null ) ? item.urlForLogin:item.url)} id="navbarDropdown"
                 onClick={this.handleMenu}>
                 {itemLinkContent}
             </Link>)

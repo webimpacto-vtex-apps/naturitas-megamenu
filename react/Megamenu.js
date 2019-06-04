@@ -151,7 +151,9 @@ class Megamenu extends Component {
                                         changeItemDropdownShow={this.changeItemDropdownShow}
                                         changeSectionDropdownShow={this.changeSectionDropdownShow}
                                         handleMenu={this.handleMenu.bind(this)}
-                                        translates={translates} width={this.state.width} height={this.state.height} />
+                                        translates={translates} width={this.state.width} 
+                                        height={this.state.height}
+                                        login={this.props.profile.profile} />
                                 )
                             })}
                         </div>
@@ -261,6 +263,15 @@ Megamenu.getSchema = (props) => {
                                     },
                                     url: {
                                         title: 'URL',
+                                        type: 'string'
+                                    },
+                                    isDifferentUrlForLogin:{
+                                        title:'Different Url For Login',
+                                        type: 'boolean',
+                                        default: false
+                                    },
+                                    urlForLogin: {
+                                        title: 'URL For Login (only if is differnt for login)',
                                         type: 'string'
                                     },
                                     display: {
