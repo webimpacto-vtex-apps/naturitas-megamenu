@@ -115,7 +115,7 @@ class Item extends PureComponent {
         )
 
         const isDifferentUrlForLoginAll=
-        (this.props.isDifferentUrlForLogin && this.props.urlForLogin ? true : false)  
+        (item.isDifferentUrlForLogin && (item.urlForLogin != '') ? true : false)  
         
         
 
@@ -125,7 +125,7 @@ class Item extends PureComponent {
                 onClick={(e) => this.toogleItemDropdown(e)}>
                 {itemLinkContent}
             </a>)
-            : (<Link className={"nav-link" + (item.isGroupMobile ? ' menuTitle ' : '')} to={(isDifferentUrlForLoginAll && (this.props.login != null ) ? item.urlForLogin:item.url)} id="navbarDropdown"
+            : (<Link className={"nav-link" + (item.isGroupMobile ? ' menuTitle ' : '') } to={(isDifferentUrlForLoginAll && (this.props.login != null ) ? item.urlForLogin:item.url)} id="navbarDropdown"
                 onClick={this.handleMenu}>
                 {itemLinkContent}
             </Link>)
