@@ -24,6 +24,7 @@ class Megamenu extends Component {
 
     componentWillUnmount() {
         window.removeEventListener('resize', this.updateWindowDimensions);
+        document.removeEventListener('mousedown', this.handleClickOutside);
     }
 
     updateWindowDimensions = () => {
@@ -36,6 +37,7 @@ class Megamenu extends Component {
         if ('ontouchstart' in document.documentElement) {
             document.body.style.cursor = 'pointer';
         }
+        document.addEventListener('mousedown', this.handleClickOutside);
     }
 
     changeItemDropdownShow = (show) => {
@@ -70,6 +72,13 @@ class Megamenu extends Component {
             showmenu: !this.state.showmenu
         }, this.showOrNotMenu);
     }
+
+    handleClickOutside = event => {
+        //console.log(event.target)
+        if(event.target.classList.contains("showmenu")){
+         document.getElementsByClassName('nav-closer')[0].click();
+        }
+     }
 
     render() {
         const { menuParentItems, menuGroups, translates } = this.props
@@ -117,7 +126,9 @@ class Megamenu extends Component {
                                         changeItemDropdownShow={this.changeItemDropdownShow}
                                         changeSectionDropdownShow={this.changeSectionDropdownShow}
                                         handleMenu={this.handleMenu.bind(this)}
-                                        translates={translates} width={this.state.width} height={this.state.height} />
+                                        translates={translates} width={this.state.width}
+                                        height={this.state.height}
+                                        login={this.props.profile.profile} />
                                 )
                             })}
                         </div>
@@ -226,6 +237,15 @@ Megamenu.getSchema = (props) => {
                                     },
                                     url: {
                                         title: 'URL',
+                                        type: 'string'
+                                    },
+                                    isDifferentUrlForLogin:{
+                                        title:'Different Url For Login',
+                                        type: 'boolean',
+                                        default: false
+                                    },
+                                    urlForLogin: {
+                                        title: 'URL For Login (only if is differnt for login)',
                                         type: 'string'
                                     },
                                     display: {
