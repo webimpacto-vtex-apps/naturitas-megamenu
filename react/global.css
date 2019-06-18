@@ -74,7 +74,7 @@
   }
   header {
     top: 0;
-    z-index: 2;
+    z-index: 4;
     width: 100%;
   }
   .mainNav nav .dropdown .dropdown-section .dropdown-section-items {
@@ -106,8 +106,17 @@
     transition: 200ms;
   }
 }
-@media (max-width: 991.98px){
+@media (max-width: 991.98px) {
   .render-provider.showmenu:before {
-      pointer-events: auto;
+    pointer-events: auto;
   }
+}
+@media (min-width: 992px) {
+  .menu-main-link-title {
+    text-transform: lowercase;
+    display: inline-block;
   }
+  .menu-main-link-title::first-letter {
+    text-transform: uppercase;
+  }
+}

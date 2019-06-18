@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Swipe from 'react-easy-swipe';
 import Group from './nested_components/Group';
 import './global.css'
 import img from './img/menu_mobile.svg'
@@ -11,7 +10,6 @@ import { FormattedMessage } from 'react-intl'
 class Megamenu extends Component {
     constructor(props) {
         super();
-        this.swipe = 0;
 
         this.Megamenu = React.createRef();
 
@@ -75,30 +73,11 @@ class Megamenu extends Component {
         }, this.showOrNotMenu);
     }
 
-    onSwipeStart(event) {
-        this.swipe = 0;
-    }
-
-
-    onSwipeMove(position, event) {
-        if (position.x < 0) {
-            document.getElementsByClassName('render-provider')[0].style.left = `calc(87% - ${Math.abs(position.x)}px)`
-            this.swipe = position.x;
-        }
-    }
-
-    onSwipeEnd(event) {
-        if (this.swipe < -30) {
-            this.setState({ showmenu: false }, this.showOrNotMenu)
-        }
-        document.getElementsByClassName('render-provider')[0].removeAttribute('style');
-    }
-
     handleClickOutside = event => {
         //console.log(event.target)
         if(event.target.classList.contains("showmenu")){
          document.getElementsByClassName('nav-closer')[0].click();
-        } 
+        }
      }
 
     render() {
@@ -116,10 +95,6 @@ class Megamenu extends Component {
         }
 
         return (
-            <Swipe
-                onSwipeStart={this.onSwipeStart.bind(this)}
-                onSwipeMove={this.onSwipeMove.bind(this)}
-                onSwipeEnd={this.onSwipeEnd.bind(this)}>
 
                 <nav className="navbar navbar-expand-lg navbar-light">
 
@@ -151,7 +126,7 @@ class Megamenu extends Component {
                                         changeItemDropdownShow={this.changeItemDropdownShow}
                                         changeSectionDropdownShow={this.changeSectionDropdownShow}
                                         handleMenu={this.handleMenu.bind(this)}
-                                        translates={translates} width={this.state.width} 
+                                        translates={translates} width={this.state.width}
                                         height={this.state.height}
                                         login={this.props.profile.profile} />
                                 )
@@ -163,7 +138,6 @@ class Megamenu extends Component {
 
                 </nav>
 
-            </Swipe>
 
 
         )

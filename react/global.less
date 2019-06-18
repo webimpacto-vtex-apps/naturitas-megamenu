@@ -80,7 +80,7 @@
 
     header{
         top: 0;
-        z-index: 2;
+        z-index: 4;
         width: 100%;
     }
    
@@ -119,4 +119,15 @@
 .render-provider.showmenu:before {
     pointer-events: auto;
 }
+}
+
+@media (min-width: 992px) {
+  .menu-main-link-title {
+    text-transform: lowercase;
+    display: inline-block; // ::first-letter don't work on inline elements
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
 }
