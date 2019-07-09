@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Group from './nested_components/Group';
 import './global.css'
 import img from './img/menu_mobile.svg'
-import { graphql } from 'react-apollo'
+import { graphql, compose } from 'react-apollo'
 import GET_PROFILE from './graphql/getProfile.gql'
+import logout from './graphql/logout.gql'
 import { Link } from 'render'
 import { FormattedMessage } from 'react-intl'
 
@@ -54,6 +55,11 @@ class Megamenu extends Component {
         }
     }
 
+    handleLogoutClick = async () => {
+        await this.props.logout()
+        location.assign('/') // Needed to refetch all the data from GraphQL.
+      }
+
     showOrNotMenu() {
 
         if (this.state.showmenu) {
@@ -91,7 +97,7 @@ class Megamenu extends Component {
             } else {
                 userName = <FormattedMessage id="header.hello" />
             }
-            linkAccount = <div><a href="/no-cache/user/logout"><FormattedMessage id="header.logout" /></a></div>
+            linkAccount = <div><a style={{cursor:'pointer'}} onClick={() => this.handleLogoutClick()}><FormattedMessage id="header.logout" /></a></div>
         }
 
         return (
@@ -420,4 +426,9 @@ const options = {
     options: () => ({ ssr: false }),
 }
 
-export default graphql(GET_PROFILE, options)(Megamenu)
+
+
+export default compose(
+    graphql(GET_PROFILE, options),
+    graphql(logout, { name: 'logout' })
+)(Megamenu)
