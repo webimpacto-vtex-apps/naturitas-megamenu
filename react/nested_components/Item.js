@@ -99,8 +99,13 @@ class Item extends PureComponent {
             if (item.bold) {
                 style.fontWeight = 'bold'
             }
+            if (item.backgroundColor) {
+                style.backgroundColor = item.backgroundColor;
+                style.borderRadius ="8px"
+            }
             return style;
         }
+      
 
         const itemLinkContent = (
             <span style={itemStyle(item)}>
@@ -122,11 +127,13 @@ class Item extends PureComponent {
         const itemLink =
         (!this.state.showItemDropdown && this.props.item.rows.length > 0)
             ? (<a className={"nav-link" + (item.isGroupMobile ? ' menuTitle ' : '')} href={(isDifferentUrlForLoginAll && (this.props.login != null ) ? item.urlForLogin:item.url)} id="navbarDropdown"
-                onClick={(e) => this.toogleItemDropdown(e)}>
+                onClick={(e) => this.toogleItemDropdown(e)}
+               
+                >
                 {itemLinkContent}
             </a>)
             : (<Link className={"nav-link" + (item.isGroupMobile ? ' menuTitle ' : '') } to={(isDifferentUrlForLoginAll && (this.props.login != null ) ? item.urlForLogin:item.url)} id="navbarDropdown"
-                onClick={this.handleMenu}>
+                onClick={this.handleMenu} >
                 {itemLinkContent}
             </Link>)
 
@@ -134,7 +141,9 @@ class Item extends PureComponent {
         return (
             <li className={"nav-item " + (item.rows.length > 0 ? 'dropdown' : '') + (this.state.showItemDropdown ? ' show ' : '')}
                 onMouseEnter={(e) => this.itemMouseEnter(e)}
-                onMouseLeave={(e) => this.itemMouseLeave(e)}>
+                onMouseLeave={(e) => this.itemMouseLeave(e)}
+                
+            >
 
                 {itemLink}
 

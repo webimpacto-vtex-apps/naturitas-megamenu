@@ -1,3 +1,7 @@
+
+.mainNav nav .nav-item .nav-link > span {
+  padding: 4px 6px;
+}
 @media (min-width: 992px) {
   .mainNav nav .dropdown .dropdown-menu {
     display: block;

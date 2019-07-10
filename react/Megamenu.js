@@ -273,6 +273,10 @@ Megamenu.getSchema = (props) => {
                                         title: 'Color',
                                         type: 'string'
                                     },
+                                    backgroundColor: {
+                                        title: 'Background Color',
+                                        type: 'string'
+                                    },
                                     icon: {
                                         title: 'Icon',
                                         type: 'string'
