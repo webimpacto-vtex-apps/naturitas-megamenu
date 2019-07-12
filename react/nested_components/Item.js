@@ -101,8 +101,8 @@ class Item extends PureComponent {
             }
             if (item.backgroundColor) {
                 style.backgroundColor = item.backgroundColor;
-                style.borderRadius ="8px"
-            }
+                style.borderRadius ="8px";
+                style.padding=  "7px 10px"           }
             return style;
         }
       

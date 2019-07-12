@@ -1,12 +1,14 @@
 
-.mainNav nav .nav-item .nav-link > span {
-  padding: 7px 10px;
-}
-.mainNav nav .menuItemsContainer li.nav-item,
-.mainNav nav .menuItemsContainer li.nav-item.show.dropdown{
-    padding: .6rem .3rem;
-}
+
+
 @media (min-width: 992px) {
+  .mainNav nav .menuItemsContainer li.nav-item,
+  .mainNav nav .menuItemsContainer li.nav-item.show.dropdown{
+      padding: .6rem .3rem;
+  }
+  .mainNav nav .nav-item .nav-link > span {
+    padding: 7px 10px;
+  }
   .mainNav nav .dropdown .dropdown-menu {
     display: block;
     visibility: hidden;
