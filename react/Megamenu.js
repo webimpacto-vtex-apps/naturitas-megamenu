@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import Group from './nested_components/Group';
+import React, { Component } from 'react'
+import Group from './nested_components/Group'
 import './global.css'
 import img from './img/menu_mobile.svg'
 import { graphql, compose } from 'react-apollo'
 import GET_PROFILE from './graphql/getProfile.gql'
 import logout from './graphql/logout.gql'
-import { Link } from 'render'
+import { Link } from 'vtex.render-runtime'
 import { FormattedMessage } from 'react-intl'
 
 class Megamenu extends Component {
     constructor(props) {
-        super();
+        super()
 
-        this.Megamenu = React.createRef();
+        this.Megamenu = React.createRef()
 
         this.state = {
             showmenu: false,
@@ -24,33 +24,33 @@ class Megamenu extends Component {
 
 
     componentWillUnmount() {
-        window.removeEventListener('resize', this.updateWindowDimensions);
-        document.removeEventListener('mousedown', this.handleClickOutside);
+        window.removeEventListener('resize', this.updateWindowDimensions)
+        document.removeEventListener('mousedown', this.handleClickOutside)
     }
 
     updateWindowDimensions = () => {
-        this.setState({ width: window.innerWidth });
+        this.setState({ width: window.innerWidth })
     }
 
     componentDidMount() {
         this.updateWindowDimensions();
-        window.addEventListener('resize', this.updateWindowDimensions);
+        window.addEventListener('resize', this.updateWindowDimensions)
         if ('ontouchstart' in document.documentElement) {
             document.body.style.cursor = 'pointer';
         }
-        document.addEventListener('mousedown', this.handleClickOutside);
+        document.addEventListener('mousedown', this.handleClickOutside)
     }
 
     changeItemDropdownShow = (show) => {
         if (show != this.state.isItemDropdownShow) {
-            this.Megamenu.current.scrollTop = 0;
+            this.Megamenu.current.scrollTop = 0
             this.setState({ isItemDropdownShow: show })
         }
     }
 
     changeSectionDropdownShow = show => {
         if (show != this.state.isSectionDropdownShow) {
-            this.Megamenu.current.scrollTop = 0;
+            this.Megamenu.current.scrollTop = 0
             this.setState({ isSectionDropdownShow: show })
         }
     }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'render' 
+import { Link } from 'vtex.render-runtime' 
 
 
 class SectionLink extends Component {

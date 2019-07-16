@@ -1,4 +1,4 @@
 {
-    "header.logout":"Terminar Sessão",
-    "header.hello":"Olá"
+    "store/header.logout":"Terminar Sessão",
+    "store/header.hello":"Olá"
 }

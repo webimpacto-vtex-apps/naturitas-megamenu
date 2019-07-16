@@ -1,5 +1,5 @@
 import React, { Component, PureComponent } from 'react';
-import { Link } from 'render'
+import { Link } from 'vtex.render-runtime'
 import Row from './Row';
 import enhanceWithClickOutside from "react-click-outside";
 
