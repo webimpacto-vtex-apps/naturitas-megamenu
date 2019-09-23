@@ -90,7 +90,13 @@ class Megamenu extends Component {
         const { menuParentItems, menuGroups, translates } = this.props
 
         let userName = translates.bienvenido
-        let linkAccount = <div onClick={this.handleMenu.bind(this)}><Link to="/account#/profile"><span>{translates && translates.iniciarSesion}</span></Link></div>
+        let linkToAccount = '/login';
+        if (this.props.profile.profile) {
+            linkToAccount = '/account#/profile';
+        }
+        
+
+        let linkAccount = <div onClick={this.handleMenu.bind(this)}><Link to={linkToAccount}><span>{translates && translates.iniciarSesion}</span></Link></div>
         if (this.props.profile.profile) {
             if (this.props.profile.profile.firstName) {
                 userName = this.props.profile.profile.firstName
