@@ -125,7 +125,7 @@ class Item extends PureComponent {
         
 
         const itemLink =
-        (!this.state.showItemDropdown && this.props.item.rows.length > 0)
+        (!this.state.showItemDropdown && item.rows !== undefined && this.props.item.rows.length > 0)
             ? (<a className={"nav-link" + (item.isGroupMobile ? ' menuTitle ' : '')} href={(isDifferentUrlForLoginAll && (this.props.login != null ) ? item.urlForLogin:item.url)} id="navbarDropdown"
                 onClick={(e) => this.toogleItemDropdown(e)}
                
@@ -139,7 +139,7 @@ class Item extends PureComponent {
 
 
         return (
-            <li className={"nav-item " + (item.rows.length > 0 ? 'dropdown' : '') + (this.state.showItemDropdown ? ' show ' : '')}
+            <li className={"nav-item " + (item.rows !== undefined && item.rows.length > 0 ? 'dropdown' : '') + (this.state.showItemDropdown ? ' show ' : '')}
                 onMouseEnter={(e) => this.itemMouseEnter(e)}
                 onMouseLeave={(e) => this.itemMouseLeave(e)}
                 
@@ -147,7 +147,7 @@ class Item extends PureComponent {
 
                 {itemLink}
 
-                {item.rows.length > 0 &&
+                {item.rows !== undefined && item.rows.length > 0 &&
                     <div id={"dropdown-menu"+this.props.keyNumber} className={"dropdown-menu " + (this.state.showItemDropdown ? ' show ' : '') + (this.state.isSectionDropdownShow ? ' blockYScroll ' : '')
                         + (item.isGroupMobile ? 'isGroup' : '')} ref={this.dropdown} aria-labelledby="navbarDropdown">
                         {!item.isGroupMobile &&
