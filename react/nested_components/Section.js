@@ -72,7 +72,7 @@ class Section extends PureComponent {
 
         return (
             <div className="dropdown-section">
-                <div className={"dropdown-section-title " + (section.sectionLinks.length > 0 ? 'hasItems' : '')}>
+                <div className={"dropdown-section-title " + (typeof section.sectionLinks !== 'undefined' && section.sectionLinks.length > 0 ? 'hasItems' : '')}>
                     {sectionLink}
                 </div>
                 <div className={"dropdown-section-items" + (this.state.showSectionDropdown ? ' show ' : '')}>
